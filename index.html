@@ -16,6 +16,15 @@
 .resize {
   background-size: contain;
 }
+.center {
+    margin: auto;
+    width: 50%;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
 </style>
 
 <div class="panel">
@@ -30,7 +39,7 @@
         <ul class="tab tab-block">
             <li class="tab-item active">
                 <a>
-                    Customize
+                        Customize
                 </a>
             </li>
         </ul>
@@ -38,17 +47,18 @@
     <div class="panel-body" id="panels">
         <div class="tile tile-centered">
             <div class="tile-content">
-                <!-- <div class="tile-title">Upload your ad</div>
-                <div class="tile-subtitle">Make it real</div> -->
-                                
+
+                <!-- box original "width:350px;height:300px;" -->
+                <!-- overlay original "width:72; height:217px; left: 139; top: 83px;" -->
+
                 <br/>
                 <br/>
                 
                 <div class="container">
-                    <div class="columns">
-                        <div class="imageWrapper column">
-                            <img src="resources/img/box2.png" class="overlayImage" alt="Box Preview" style="width:350px;height:300px;">
-                            <img src="" class="overlayImage cover resize" id="boxOverlay" alt="Box Preview" style="width:72; height:217px; left: 139px; top: 83px;">
+                    <div class="center">
+                        <div class="imageWrapper">
+                            <img src="resources/img/box2.png" id="orgBox" class="overlayImage" style="width:900;height:600;">
+                            <img src="" class="overlayImage cover resize" id="boxOverlay" style="width:185; height:434; left: 357; top: 166;">
                         </div>
                     </div>
                 </div>
@@ -58,6 +68,7 @@
                 <br/>
                 <br/>
                 <br/>
+                <br/> 
                 <br/>
                 <br/>
                 <br/>
@@ -68,8 +79,23 @@
                 <br/>
                 <br/>
                 <br/>
-                
-                <div class="box">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/> 
+
+                <div class="box center">
 					<input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} files selected" multiple="">
 					<label for="file-2"><svg width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg> <span id="imageName">Choose File</span></label>
 				</div>
@@ -83,6 +109,19 @@
 </div>
             
 <script>
+
+var width = $("#orgBox").width();
+var left = (139 / 350) * width;
+$("#boxOverlay").width((185 / 900) * width);
+document.getElementById('boxOverlay').style.setProperty("left", left.toString());
+
+window.onresize = function(event) {
+    var width = $("#orgBox").width();
+    var left = (139 / 350) * width;
+    $("#boxOverlay").width((185 / 900) * width);
+    document.getElementById('boxOverlay').style.setProperty("left", left.toString());
+};
+
 document.getElementById('file-2').addEventListener('change', readURL, true);
 function readURL(){
    var file = document.getElementById("file-2").files[0];
