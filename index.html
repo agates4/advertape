@@ -57,7 +57,7 @@
     </div>
 </div>
 <div class="columns">
-    <div class="column col-6 col-xs-12">
+    <div class="column col-6 col-xs-12" style="min-width: 500px;">
         <div class="modal-temp modal-sm">
             <div class="modal-overlay"></div>
             <div class="modal-container" role="document">
@@ -135,7 +135,7 @@
         </div>
     </div>
 
-    <div class="modal-temp modal-sm column col-6 col-xs-12">
+    <div class="modal-temp modal-sm column col-6 col-xs-12" style="min-width: 500px;">
         <div class="modal-overlay"></div>
         <div class="modal-container" role="document">
             <div class="modal-body">
@@ -162,14 +162,14 @@
                                             <div class="parallax-top-right"></div>
                                             <div class="parallax-bottom-left"></div>
                                             <div class="parallax-bottom-right"></div>
-                                            <div class="parallax-content">
+                                            <div class="parallax-content" id="parallaxContent">
                                                 <div class="parallax-back">
                                                     <img src="resources/img/tape.png" id="orgBox" style="width:778; height:355;" class="img-fit-contain rounded center" />
                                                 </div>
                                             </div>
                                         </div>
                                         <!-- <img src="resources/img/tape.png" id="orgBox" class="overlayImage"> -->
-                                        <img src="" class="overlayImage cover resize" id="boxOverlay" style="width:400; height:187; left: 363; top: 20;">
+                                        <img src="" class="overlayImage resize cover" id="boxOverlay" style="width:400; height:187; left: 363; top: 20;">
                                     </div>
                                 </div>
                             </div>
@@ -190,14 +190,14 @@
     
     function boxRatio() {
         var width = $("#orgBox").width();
-        var height = $("#orgBox").height();
+        var height = (355 / 778) * width;
 
-        var left = (363 / 777) * width;
         $("#boxOverlay").width((400 / 777) * width);
+        var left = (363 / 777) * width;
         document.getElementById('boxOverlay').style.setProperty("left", left.toString());
 
-        var top = (20 / 355) * height;
-        $("#boxOverlay").height((187 / 354) * height); 
+        $("#boxOverlay").height((187 / 355) * height); 
+        var top = 178 - height / 2.25;
         document.getElementById('boxOverlay').style.setProperty("top", top.toString());
     }
 
