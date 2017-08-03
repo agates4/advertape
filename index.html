@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="resources/css/spectre/spectre.css"/>
+<link rel="stylesheet" href="resources/css/spectre/spectre-exp.css"/>
 <link rel="stylesheet" href="resources/css/font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/custom-input-file.css">
 <script src="resources/js/jquery-v1.min.js"></script>
@@ -28,6 +29,10 @@
         opacity:0.5;
         border:5px solid transparent;
     }
+    .logo {
+        height: 140;
+        width: 522;
+    }
     img {
         max-width: 100%;
         height: auto;
@@ -37,10 +42,7 @@
 
 <div class="panel">
     <div class="panel-header text-center">
-        <figure class="avatar avatar-lg">
-            <img src="img/avatar-2.png">
-        </figure>
-        <div class="panel-title mt-10">AdverTape</div>
+        <img class="logo resize center" src="resources/img/advertape.png">
         <div class="panel-subtitle">Marketing on a <u>roll</u></div>
     </div>
 </div>
@@ -77,12 +79,14 @@
                             </div>
                         </div>
 
+                        <br/>
+
                         <div class="columns">
                             <div class="column center col-xs-6">
-                                Need a QR code?
+                                How many rolls do you want to order?
                             </div>
                             <div class="column center col-xs-6">
-                                
+                                <input class="slider tooltip" data-tooltip="50" type="range" min="0" max="100" value="50">
                             </div>
                         </div>
 
@@ -125,14 +129,24 @@
                         <div class="container">
                             <div class="">
                                 <div class="imageWrapper">
-                                    <img src="resources/img/tape.png" id="orgBox" class="overlayImage">
+                                    <div class="parallax">
+                                        <div class="parallax-top-left"></div>
+                                        <div class="parallax-top-right"></div>
+                                        <div class="parallax-bottom-left"></div>
+                                        <div class="parallax-bottom-right"></div>
+                                        <div class="parallax-content">
+                                            <div class="parallax-back">
+                                                <img src="resources/img/tape.png" id="orgBox" style="width:778; height:355;" class="img-responsive rounded center"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <img src="resources/img/tape.png" id="orgBox" class="overlayImage"> -->
                                     <img src="" class="overlayImage cover resize" id="boxOverlay" style="width:400; height:187; left: 363; top: 20;">
                                 </div>
                             </div>
                         </div>
 
-                        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                        <br/><br/>
 
                     </div>
                 </div>
@@ -211,5 +225,24 @@
         return offScreenCanvas.toDataURL("image/png", 100);
     }
 </script>
+
+<div class="modal-temp modal-sm">
+    <div class="modal-overlay"></div>
+    <div class="modal-container" role="document">
+        <div class="modal-header">
+            <button type="button" class="btn btn-clear float-right" aria-label="Close"></button>
+            <div class="modal-title">Modal title</div>
+        </div>
+        <div class="modal-body">
+            <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-link">Close</button>
+            <button class="btn btn-primary">Share</button>
+        </div>
+    </div>
+</div>
 
 </html>
