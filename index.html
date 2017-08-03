@@ -48,114 +48,122 @@
 </div>
 <div class="columns">
     <div class="column col-6 col-xs-12">
-        <div class="panel-nav">
-            <ul class="tab tab-block">
-                <li class="tab-item active">
-                    <a>
-                            Customize
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="panel">
-            <div class="panel-body" id="panels">
-                <div class="tile tile-centered">
-                    <div class="tile-content">
-                        
-                        <div class="columns">
-                            <div class="column center col-xs-6">
-                                Upload your logo
-                            </div>
-                            <div class="column center col-xs-6">
-                                <div id="uploadDesign">
-                                    <input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} files selected" multiple="">
-                                    <label for="file-2">
-                                        <svg width="20" height="17" viewBox="0 0 20 17">
-                                            <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
-                                        </svg> 
-                                        <span id="imageName">Choose File</span>
-                                    </label>
-                                </div>
-                            </div>
+        <div class="modal-temp modal-sm">
+            <div class="modal-overlay"></div>
+            <div class="modal-container" role="document">
+                <div class="modal-body">
+                    <div class="content">
+                        <div class="panel-nav">
+                            <ul class="tab tab-block">
+                                <li class="tab-item active">
+                                    <a>
+                                            Customize
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-
-                        <br/>
-
-                        <div class="columns">
-                            <div class="column center col-xs-6">
-                                How many rolls do you want to order?
-                            </div>
-                            <div class="column center col-xs-6">
-                                <input class="slider tooltip" data-tooltip="50" type="range" min="0" max="100" value="50">
-                            </div>
-                        </div>
-
-                        <div class="columns">
-                            <div class="column center col-xs-6">
-                                
-                            </div>
-                            <div class="column center col-xs-6">
-                                
-                            </div>
-                        </div>
-                        
-                        <br/>
-                    </div>
-                </div>
-            </div>
-            <div class="panel-footer">
-                maybe put a 'clear design' button here
-            </div>
-        </div>
-    </div>
-
-    <div class="column col-6 col-xs-12">
-        <div class="panel-nav">
-            <ul class="tab tab-block">
-                <li class="tab-item active">
-                    <a>
-                            Preview
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="panel">
-            <div class="panel-body" id="panels">
-                <div class="tile tile-centered">
-                    <div class="tile-content">
-
-                        <br/>
-
-                        <div class="container">
-                            <div class="">
-                                <div class="imageWrapper">
-                                    <div class="parallax">
-                                        <div class="parallax-top-left"></div>
-                                        <div class="parallax-top-right"></div>
-                                        <div class="parallax-bottom-left"></div>
-                                        <div class="parallax-bottom-right"></div>
-                                        <div class="parallax-content">
-                                            <div class="parallax-back">
-                                                <img src="resources/img/tape.png" id="orgBox" style="width:778; height:355;" class="img-responsive rounded center"/>
+                            <div class="tile tile-centered">
+                                <div class="tile-content">
+                                    
+                                    <div class="columns">
+                                        <div class="column center col-xs-6">
+                                            Upload your logo
+                                        </div>
+                                        <div class="column center col-xs-6">
+                                            <div id="uploadDesign">
+                                                <input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} files selected" multiple="">
+                                                <label for="file-2">
+                                                    <svg width="20" height="17" viewBox="0 0 20 17">
+                                                        <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
+                                                    </svg> 
+                                                    <span id="imageName">Choose File</span>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <img src="resources/img/tape.png" id="orgBox" class="overlayImage"> -->
-                                    <img src="" class="overlayImage cover resize" id="boxOverlay" style="width:400; height:187; left: 363; top: 20;">
+
+                                    <br/>
+
+                                    <div class="columns">
+                                        <div class="column center col-xs-6">
+                                            How many rolls do you want to order?
+                                        </div>
+                                        <div class="column center col-xs-6">
+                                            <input class="slider tooltip" data-tooltip="50" type="range" min="0" max="100" value="50">
+                                        </div>
+                                    </div>
+
+                                    <div class="columns">
+                                        <div class="column center col-xs-6">
+                                            
+                                        </div>
+                                        <div class="column center col-xs-6">
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <br/>
                                 </div>
                             </div>
+                        <div class="panel-footer">
+                            maybe put a 'clear design' button here
                         </div>
-
-                        <br/><br/>
-
                     </div>
                 </div>
             </div>
-            <div class="panel-footer">
-                <button class="btn btn-primary btn-block">Purchase</button>
+        </div>
+    </div>
+
+    <div class="modal-temp modal-sm column col-6 col-xs-12">
+        <div class="modal-overlay"></div>
+        <div class="modal-container" role="document">
+            <div class="modal-body">
+                <div class="content">
+                    <div class="panel-nav">
+                        <ul class="tab tab-block">
+                            <li class="tab-item active">
+                                <a>
+                                        Preview
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tile tile-centered">
+                        <div class="tile-content">
+
+                            <br/>
+
+                            <div class="container">
+                                <div class="">
+                                    <div class="imageWrapper">
+                                        <div class="parallax">
+                                            <div class="parallax-top-left"></div>
+                                            <div class="parallax-top-right"></div>
+                                            <div class="parallax-bottom-left"></div>
+                                            <div class="parallax-bottom-right"></div>
+                                            <div class="parallax-content">
+                                                <div class="parallax-back">
+                                                    <img src="resources/img/tape.png" id="orgBox" style="width:778; height:355;" class="img-responsive rounded center" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <img src="resources/img/tape.png" id="orgBox" class="overlayImage"> -->
+                                        <img src="" class="overlayImage cover resize" id="boxOverlay" style="width:400; height:187; left: 363; top: 20;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="panel-footer">
+                        <button class="btn btn-primary btn-block">Purchase</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    
 </div>
 
 
@@ -225,24 +233,5 @@
         return offScreenCanvas.toDataURL("image/png", 100);
     }
 </script>
-
-<div class="modal-temp modal-sm">
-    <div class="modal-overlay"></div>
-    <div class="modal-container" role="document">
-        <div class="modal-header">
-            <button type="button" class="btn btn-clear float-right" aria-label="Close"></button>
-            <div class="modal-title">Modal title</div>
-        </div>
-        <div class="modal-body">
-            <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-link">Close</button>
-            <button class="btn btn-primary">Share</button>
-        </div>
-    </div>
-</div>
 
 </html>

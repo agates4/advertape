@@ -1,0 +1,41 @@
+<div class="panel-nav">
+    <ul class="tab tab-block">
+        <li class="tab-item active">
+            <a>
+                    Preview
+            </a>
+        </li>
+    </ul>
+</div>
+    <div class="tile tile-centered">
+        <div class="tile-content">
+
+            <br/>
+
+            <div class="container">
+                <div class="">
+                    <div class="imageWrapper">
+                        <div class="parallax">
+                            <div class="parallax-top-left"></div>
+                            <div class="parallax-top-right"></div>
+                            <div class="parallax-bottom-left"></div>
+                            <div class="parallax-bottom-right"></div>
+                            <div class="parallax-content">
+                                <div class="parallax-back">
+                                    <img src="resources/img/tape.png" id="orgBox" style="width:778; height:355;" class="img-responsive rounded center"/>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <img src="resources/img/tape.png" id="orgBox" class="overlayImage"> -->
+                        <img src="" class="overlayImage cover resize" id="boxOverlay" style="width:400; height:187; left: 363; top: 20;">
+                    </div>
+                </div>
+            </div>
+
+            <br/><br/>
+
+        </div>
+    </div>
+<div class="panel-footer">
+    <button class="btn btn-primary btn-block">Purchase</button>
+</div>
