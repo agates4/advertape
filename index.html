@@ -1,10 +1,20 @@
-<link rel="stylesheet" href="resources/css/spectre/spectre.css"/>
-<link rel="stylesheet" href="resources/css/spectre/spectre-exp.css"/>
-<link rel="stylesheet" href="resources/css/font-awesome-4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="resources/css/custom-input-file.css">
-<script src="resources/js/jquery-v1.min.js"></script>
-<script src="resources/js/qr-code.min.js"></script>
 <html>
+
+<head>
+    <link rel="stylesheet" href="resources/css/spectre/spectre.css"/>
+    <link rel="stylesheet" href="resources/css/spectre/spectre-exp.css"/>
+    <link rel="stylesheet" href="resources/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/custom-input-file.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/yahoo/pure-release/v0.6.0/pure-min.css">
+    <link rel="stylesheet" href="resources/css/auto-complete.css">
+    <script src="resources/js/jquery-v1.min.js"></script>
+    <script src="resources/js/qr-code.min.js"></script>
+    <script src="resources/js/auto-complete.js"></script>
+
+    <title>AdverTape Rolls</title>
+    <meta name="description" content="Purchase tape with ads - and have is distributed straight to your target.">
+</head>
 
 <style>
     .imageWrapper {
@@ -87,26 +97,37 @@
                                     <div class="columns">
                                         <div class="column center col-xs-6">
                                             How many rolls do you want to order?
+                                             <div style="top:25;opacity: 0.0;" class="badge" id="placeHolder" data-badge="OSU"></div> 
+                                             <div style="top:25;opacity: 0.0;" class="badge" id="placeHolder" data-badge="OSU"></div> 
                                         </div>
+                                        
                                         <div class="column center col-xs-6">
-                                            <input class="slider tooltip" data-tooltip="50" type="range" min="0" max="100" value="50">
+                                            <!-- <input class="form-input" type="number" id="input-example-13" placeholder="00" value="1000"> -->
+                                            <div style="max-width:900px;margin:auto;">
+                                                <form onsubmit="return false;" style="top:50;" class="pure-form" style="margin:30px 0 40px">
+                                                    <input id="advanced-demo" type="text" name="q" placeholder="Choose Universities" style="width:100%;max-width:600px;outline:0" autocomplete="off">
+                                                    <span style="top:25;opacity: 0.0;right:50;" class="badge" id="placeHolder" data-badge=" "></span>
+                                                    <div id="appendBadges"></div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="columns">
+                                    <!-- <div class="columns">
                                         <div class="column center col-xs-6">
                                             
                                         </div>
                                         <div class="column center col-xs-6">
                                             
                                         </div>
-                                    </div>
+                                    </div> -->
                                     
                                     <br/>
                                 </div>
                             </div>
+                            <br/>
                         <div class="panel-footer">
-                            maybe put a 'clear design' button here
+                            <button class="btn btn-primary btn-block">Purchase</button>
                         </div>
                     </div>
                 </div>
@@ -143,7 +164,7 @@
                                             <div class="parallax-bottom-right"></div>
                                             <div class="parallax-content">
                                                 <div class="parallax-back">
-                                                    <img src="resources/img/tape.png" id="orgBox" style="width:778; height:355;" class="img-responsive rounded center" />
+                                                    <img src="resources/img/tape.png" id="orgBox" style="width:778; height:355;" class="img-fit-contain rounded center" />
                                                 </div>
                                             </div>
                                         </div>
@@ -156,9 +177,6 @@
                     </div>
                     <br/>
                     <br/>
-                    <div class="panel-footer">
-                        <button class="btn btn-primary btn-block">Purchase</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -169,7 +187,7 @@
 
             
 <script>
-
+    
     function boxRatio() {
         var width = $("#orgBox").width();
         var height = $("#orgBox").height();
@@ -178,7 +196,7 @@
         $("#boxOverlay").width((400 / 777) * width);
         document.getElementById('boxOverlay').style.setProperty("left", left.toString());
 
-        var top = (20 / 354) * height;
+        var top = (20 / 355) * height;
         $("#boxOverlay").height((187 / 354) * height); 
         document.getElementById('boxOverlay').style.setProperty("top", top.toString());
     }
@@ -205,6 +223,11 @@
             document.getElementById("imageName").innerHTML = file["name"];
         } else {}
     }
+    $('#advanced-demo').click(function () {
+        if ($(this).is(':focus')) {
+            $('#theOptions').show();
+        }
+    });
 
     function rotateBase64Image90deg(base64Image, isClockwise) {
         // create an off-screen canvas
@@ -232,6 +255,48 @@
         // encode image to data-uri with base64
         return offScreenCanvas.toDataURL("image/png", 100);
     }
+
+        var demo2 = new autoComplete({
+            selector: '#advanced-demo',
+            minChars: 0,
+            source: function(term, suggest){
+                term = term.toLowerCase();
+                var choices = [
+                    ['Ashland University', 'AU'], 
+                    ['Case Western Reserve University', 'CWRU'],
+                    ['Cleveland State University', 'CSU'], 
+                    ['Ohio State University', 'OSU'], 
+                    ['University of Akron', 'UA']];
+                var suggestions = [];
+                for (i=0;i<choices.length;i++)
+                    if (~(choices[i][0]+' '+choices[i][1]).toLowerCase().indexOf(term)) suggestions.push(choices[i]);
+                suggest(suggestions);
+            },
+            renderItem: function (item, search){
+                search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&amp;');
+                var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+                return '<div class="autocomplete-suggestion" data-langname="'+item[0]+'" data-lang="'+item[1]+'" data-val="'+search+'">'+item[0].replace(re, "<b>$1</b>")+'</div>';
+            },
+            onSelect: function(e, term, item){
+                console.log('Item "'+item.getAttribute('data-langname')+' ('+item.getAttribute('data-lang')+')" selected by '+(e.type == 'keydown' ? 'pressing enter' : 'mouse click')+'.');
+                // var useless = item.getAttribute('data-langname')+' ('+item.getAttribute('data-lang')+')';
+                // document.getElementById('advanced-demo').value = "Click here to add more!";
+                $('<span style="top:15;right:20;" class="badge" data-badge="' + item.getAttribute('data-lang').toString() + '"></span><span>   </span>').insertBefore('#appendBadges');
+                $('#theOptions').blur();
+            }
+        });
+
+        if (~window.location.href.indexOf('http')) {
+            (function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();
+            (function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=114593902037957";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+            document.getElementById('github_social').innerHTML = '\
+                <iframe style="float:left;margin-right:15px" src="//ghbtns.com/github-btn.html?user=Pixabay&repo=JavaScript-autoComplete&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>\
+                <iframe style="float:left;margin-right:15px" src="//ghbtns.com/github-btn.html?user=Pixabay&repo=JavaScript-autoComplete&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>\
+            ';
+        }
 </script>
+
+
 
 </html>
