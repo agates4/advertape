@@ -113,14 +113,16 @@
                                         </div>
                                     </div>
 
-                                    <!-- <div class="columns">
+                                     <div class="columns">
                                         <div class="column center col-xs-6">
-                                            
+                                            How much will it cost?
                                         </div>
                                         <div class="column center col-xs-6">
-                                            
+                                            <div class="toast toast-success" id="toast" style="width:125;">
+                                                0
+                                            </div>
                                         </div>
-                                    </div> -->
+                                    </div> 
                                     
                                     <br/>
                                 </div>
@@ -282,6 +284,25 @@
                 // var useless = item.getAttribute('data-langname')+' ('+item.getAttribute('data-lang')+')';
                 // document.getElementById('advanced-demo').value = "Click here to add more!";
                 $('<span style="top:15;right:20;" class="badge" data-badge="' + item.getAttribute('data-lang').toString() + '"></span><span>   </span>').insertBefore('#appendBadges');
+                switch (item.getAttribute('data-lang')) {
+                    case "AU":
+                        $("#toast").text((9519 + Number($("#toast").text())).toString());
+                        break;
+                    case "CWRU":
+                        $("#toast").text((19478.88 + Number($("#toast").text())).toString());
+                        break;
+                    case "CSU":
+                        $("#toast").text((28824.2 + Number($("#toast").text())).toString());
+                        break;
+                    case "OSU":
+                        $("#toast").text((110296.82 + Number($("#toast").text())).toString());
+                        break;
+                    case "UA":
+                        $("#toast").text((42045.59 + Number($("#toast").text())).toString());
+                        break;
+                    default:
+                        break;
+                }
                 $('#theOptions').blur();
             }
         });
