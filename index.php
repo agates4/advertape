@@ -1,8 +1,5 @@
 <html>
 
-<?
-echo "big poop";
-?>
 <head>
     <link rel="stylesheet" href="resources/css/spectre/spectre.css"/>
     <link rel="stylesheet" href="resources/css/spectre/spectre-exp.css"/>
