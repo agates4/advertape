@@ -1,20 +1,6 @@
-<?
-require __DIR__ . '/vendor/autoload.php';
-
-$dbopts = parse_url(getenv('DATABASE_URL'));
-$app->register(new Herrera\Pdo\PdoServiceProvider(),
-               array(
-                   'pdo.dsn' => 'pgsql:dbname='.ltrim($dbopts["path"],'/').';host='.$dbopts["host"] . ';port=' . $dbopts["port"],
-                   'pdo.username' => $dbopts["user"],
-                   'pdo.password' => $dbopts["pass"]
-               )
-);
-?>
-
 <html>
 
 <head>
-
     <link rel="stylesheet" href="resources/css/spectre/spectre.css"/>
     <link rel="stylesheet" href="resources/css/spectre/spectre-exp.css"/>
     <link rel="stylesheet" href="resources/css/font-awesome-4.7.0/css/font-awesome.min.css">

@@ -6,7 +6,5 @@
             "email": "agate97@gmail.com"
         }
     ],
-    "require": {
-        "csanquer/pdo-service-provider": "~1.1dev"
-    }
+    "require": {}
 }
