@@ -1,0 +1,6 @@
+{
+  "name": "AdhesionMedia",
+  "description": "A barebones PHP app that makes use of the Silex web framework",
+  "repository": "https://github.com/agates4/advertape",
+  "addons": []
+}
