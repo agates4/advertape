@@ -6,5 +6,7 @@
             "email": "agate97@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "herrera-io/silex-pdo": "^1.2"
+    }
 }
