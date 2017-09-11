@@ -24,6 +24,7 @@
 
     echo "<br>";
 
+    var_dump(parse_url(getenv('ENCRYPT_METHOD')));
     var_dump(openssl_encrypt("Winner winner!&&&&2", parse_url(getenv('ENCRYPT_METHOD')), parse_url(getenv('ENCRYPT_PASS')), false, parse_url(getenv('ENCRYPT_IV'))));
 
 
