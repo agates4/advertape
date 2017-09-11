@@ -73,13 +73,34 @@
     <script src="resources/js/jquery-v1.min.js"></script>
     <script src="resources/js/qr-code.min.js"></script>
     <script src="resources/js/auto-complete.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<form id="foo">
-    <label for="bar">A bar</label>
-
-    <input type="submit" value="Send" />
-</form>
+<div class="container">
+    <div class="columns">
+        <div class="column col-xl-10" style="margin:0 auto; max-width: 500px;">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title h5">Enjoy your advertape coupon!</div>
+                    <div class="card-subtitle text-gray">Wendy's</div>
+                </div>
+                <div class="card-image">
+                    <img class="img-responsive" src="resources/img/wendys.png" alt="Wendy's!">
+                </div>
+                <div class="card-body">
+                    Use this for 50% off any everyday value menu purchase!
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group btn-group-block">
+                        <button id="activate" class="btn btn-primary">Activate</button>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+</div>
 
 <script>
 
@@ -93,8 +114,7 @@ function getUrlVars() {
 }
 
 // Bind to the submit event of our form
-$("#foo").submit(function(event){
-
+$("#activate").click(function(event){
     // Prevent default posting of form - put here to work in case of errors
     event.preventDefault();
 
