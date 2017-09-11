@@ -21,4 +21,9 @@
         var_dump($row);
         echo "<br />\n";
     }
+
+    echo "next";
+    
+    var_dump($_POST);
+
 ?>
