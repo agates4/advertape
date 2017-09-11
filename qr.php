@@ -83,14 +83,14 @@
         <div class="column col-xl-10" style="margin:0 auto; max-width: 500px;">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title h5">Enjoy your advertape coupon!</div>
+                    <div class="card-title h5"><? echo $name ?></div>
                     <div class="card-subtitle text-gray">Wendy's</div>
                 </div>
                 <div class="card-image">
                     <img class="img-responsive" src="resources/img/wendys.png" alt="Wendy's!">
                 </div>
                 <div class="card-body">
-                    Use this for 50% off any everyday value menu purchase!
+                    <? echo $value ?>
                 </div>
                 <div class="card-footer">
                     <div class="btn-group btn-group-block">
