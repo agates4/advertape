@@ -7,6 +7,7 @@
     $ENUM_CAMP_ID = 3;
     $ENUM_USED = 4;
     $ENUM_QR = 5;
+    $ENUM_DATE_USED = 6;
 
     # This function reads your DATABASE_URL configuration automatically set by Heroku
     # the return value is a string that will work with pg_connect
@@ -26,9 +27,16 @@
             exit;
         }
         
-        $result = pg_query($db, "SELECT * FROM ads WHERE id = " . $id . ";");
-        $row = pg_fetch_row($result)[0];
-        var_dump($row);
+        $result = pg_fetch_row(pg_query($db, "SELECT * FROM ads WHERE id = " . $id . ";"));
+
+        $name = $result[$ENUM_NAME];
+        $value = $result[$ENUM_VALUE];
+        $used = $result[$ENUM_USED];
+        $qr = $result[$ENUM_QR];
+        $date_used = $result[$ENUM_DATE_USED];
+
+        echo $qr;
+        
     }
     // var_dump(openssl_encrypt("Winner winner!&&&&2", parse_url(getenv('ENCRYPT_METHOD'))["path"], parse_url(getenv('ENCRYPT_PASS'))["path"], false, parse_url(getenv('ENCRYPT_IV'))["path"]));
 
