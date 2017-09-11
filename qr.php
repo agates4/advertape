@@ -36,7 +36,21 @@
         $date_used = $result[$ENUM_DATE_USED];
 
         if ($qr == "t") {
-            echo "fuck me up";
+            if ($used == "t") {
+                echo "o shit this one is used";
+            }
+            else {
+                echo $name;
+                echo "<br>";
+                echo $value;
+                echo "<br>";
+                echo "click here to activate coupon";
+            }
+        }
+        else {
+            echo $name;
+            echo "<br>";
+            echo $value;
         }
         
     }
