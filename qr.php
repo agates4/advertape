@@ -1,3 +1,19 @@
+<head>
+    <link rel="stylesheet" href="resources/css/spectre/spectre.css"/>
+    <link rel="stylesheet" href="resources/css/spectre/spectre-exp.css"/>
+    <link rel="stylesheet" href="resources/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/custom-input-file.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/yahoo/pure-release/v0.6.0/pure-min.css">
+    <link rel="stylesheet" href="resources/css/auto-complete.css">
+    <script src="resources/js/jquery-v1.min.js"></script>
+    <script src="resources/js/qr-code.min.js"></script>
+    <script src="resources/js/auto-complete.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
 <?
     require __DIR__ . '/vendor/autoload.php';
 
@@ -122,86 +138,3 @@
     // 0SDvNh3sSPPzaeYMkigPaKDZ9RWHj10hNIpIKLIsgohXiTEo7BbBrZpHVFcIjoy1
 
 ?>
-
-<head>
-    <link rel="stylesheet" href="resources/css/spectre/spectre.css"/>
-    <link rel="stylesheet" href="resources/css/spectre/spectre-exp.css"/>
-    <link rel="stylesheet" href="resources/css/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/custom-input-file.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/yahoo/pure-release/v0.6.0/pure-min.css">
-    <link rel="stylesheet" href="resources/css/auto-complete.css">
-    <script src="resources/js/jquery-v1.min.js"></script>
-    <script src="resources/js/qr-code.min.js"></script>
-    <script src="resources/js/auto-complete.js"></script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<div class="container">
-    <div class="columns">
-        <div class="column col-xl-10" style="margin:0 auto; max-width: 500px;">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title h5"><? echo $name ?></div>
-                    <div class="card-subtitle text-gray">Wendy's</div>
-                </div>
-                <div class="card-image">
-                    <img class="img-responsive" src="resources/img/wendys.png" alt="Wendy's!">
-                </div>
-                <div class="card-body">
-                    <? echo $value ?>
-                </div>
-                <div class="card-footer">
-                    <div class="btn-group btn-group-block">
-                        <button id="activate" class="btn btn-primary">Activate</button>
-                    </div>
-                </div>
-            </div>        
-        </div>
-    </div>
-</div>
-
-<script>
-
-function getUrlVars() {
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,    
-    function(m,key,value) {
-        vars[key] = value;
-    });
-    return vars;
-}
-
-// Bind to the submit event of our form
-$("#activate").click(function(event){
-    // Prevent default posting of form - put here to work in case of errors
-    event.preventDefault();
-
-    // Fire off the request to /useQR.php
-    request = $.ajax({
-        url: "/useQR.php",
-        type: "post",
-        data: {code: getUrlVars()["code"]}
-    });
-
-    // Callback handler that will be called on success
-    request.done(function (response, textStatus, jqXHR){
-        // Log a message to the console
-        console.log("Hooray, it worked!");
-        console.log(response);
-    });
-
-    // Callback handler that will be called on failure
-    request.fail(function (jqXHR, textStatus, errorThrown){
-        // Log the error to the console
-        console.error(
-            "The following error occurred: "+
-            textStatus, errorThrown
-        );
-    });
-
-});
-
-</script>
