@@ -14,29 +14,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<div class="container">
-    <div class="columns">
-        <div class="column col-xl-10" style="margin:0 auto; max-width: 500px;">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title h5">Enjoy your advertape coupon!</div>
-                    <div class="card-subtitle text-gray">Wendy's</div>
-                </div>
-                <div class="card-image">
-                    <img class="img-responsive" src="resources/img/wendys.png" alt="Wendy's!">
-                </div>
-                <div class="card-body">
-                        Use this for 50% off any everyday value menu purchase!
-                </div>
-                <div class="card-footer">
-                    <div class="btn-group btn-group-block">
-                        <button id="activate" class="btn">Activate</button>
+<style>
+
+.paged {
+    position: absolute;
+    left: 150%;
+}
+
+#unactivated {
+    left: 50%;
+}
+
+</style>
+
+<!-- <div id="wrap">
+    <div id="popup"> -->
+        <div class="container">
+            <div class="columns">
+                <div class="column col-6" style="margin:0 auto; ">
+                    <div class="card" id="unactivated">
+                        <div class="card-header">
+                            <div class="card-title h5">Enjoy your advertape coupon!</div>
+                            <div class="card-subtitle text-gray">Wendy's</div>
+                        </div>
+                        <div class="card-image">
+                            <img class="img-responsive" src="resources/img/wendys.png" alt="Wendy's!">
+                        </div>
+                        <div class="card-body">
+                                Use this for 50% off any everyday value menu purchase!
+                        </div>
+                        <div class="card-footer">
+                            <div class="btn-group btn-group-block">
+                                <button id="activate" class="btn">Activate</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>        
+            </div>
         </div>
-    </div>
-</div>
+    <!-- </div>
+</div> -->
 
 <script>
 
@@ -48,7 +65,6 @@ function getUrlVars() {
     });
     return vars;
 }
-
 // Bind to the submit event of our form
 $("#activate").click(function(event){
     // Prevent default posting of form - put here to work in case of errors
@@ -67,7 +83,7 @@ $("#activate").click(function(event){
         // Callback handler that will be called on success
         request.done(function (response, textStatus, jqXHR){
             // Log a message to the console
-            console.log("Hooray, it worked!");
+            console.log("Hooray, it worked!");  
             console.log(response);
             $("#activate").removeClass("loading");
             
@@ -83,9 +99,61 @@ $("#activate").click(function(event){
                 "The following error occurred: "+
                 textStatus, errorThrown
             );
+
+            $("#activate").removeClass("loading");
+            
+            // $("#activate").html("Cashier - tap to approve!");
+            $("#activate").prop("disabled", true);
+            breakGlass();
+            // alert("Congrats! Your coupon has been activated! Show this to your cashier to redeem the coupon.")
+
         });
     }, 1000);
 
 });
+
+var pieces = 70,
+    speed = 1,
+    pieceW = 30,
+    pieceH = 30;
+
+
+for (var i = pieces - 1; i >= 0; i--) {
+  $('#popup').prepend('<div class="piece" style="width:'+pieceW+'px; height:'+pieceH+'px"></div>');
+};
+
+function breakGlass(from){
+  if (from === "reverse"){
+    $('.piece').each(function(){
+      TweenLite.to($(this), speed, {x:0, y:0, rotationX:0, rotationY:0, opacity: 1, z: 0});
+      TweenLite.to($('#popup h1'),0.2,{opacity:1, delay: speed});
+    });
+    return;
+  }
+
+  if(!from){
+    TweenLite.to($('#popup h1'),0.2,{opacity:0});
+  } else {
+    TweenLite.from($('#popup h1'),0.5,{opacity:0, delay: speed});
+  }
+
+  $('.piece').each(function(){
+    var distX = getRandomArbitrary(-250, 250),	
+        distY = getRandomArbitrary(-250, 250),
+        rotY  = getRandomArbitrary(-720, 720),
+        rotX  = getRandomArbitrary(-720, 720),
+        z = getRandomArbitrary(-500, 500);
+
+    if(!from){
+      TweenLite.to($(this), speed, {x:distX, y:distY, rotationX:rotX, rotationY:rotY, opacity: 0, z: z});	
+    } else {
+      TweenLite.from($(this), speed, {x:distX, y:distY, rotationX:rotX, rotationY:rotY, opacity: 0, z: z});	
+    }				
+  });	
+}
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
 </script>
