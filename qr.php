@@ -109,6 +109,7 @@ $("#foo").submit(function(event){
     request.done(function (response, textStatus, jqXHR){
         // Log a message to the console
         console.log("Hooray, it worked!");
+        console.log(response);
     });
 
     // Callback handler that will be called on failure
