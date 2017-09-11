@@ -55,8 +55,10 @@
         
     }
     // var_dump(openssl_encrypt("Winner winner!&&&&2", parse_url(getenv('ENCRYPT_METHOD'))["path"], parse_url(getenv('ENCRYPT_PASS'))["path"], false, parse_url(getenv('ENCRYPT_IV'))["path"]));
-
+    // naBGppYwZwAka/BgQ3CtX/LydrxtxRS80EC5jL4CzvA=
     
+    var_dump(openssl_encrypt("Enjoy your advertape coupon!&&&&1", parse_url(getenv('ENCRYPT_METHOD'))["path"], parse_url(getenv('ENCRYPT_PASS'))["path"], false, parse_url(getenv('ENCRYPT_IV'))["path"]));
+    // naBGppYwZwAka/BgQ3CtX/LydrxtxRS80EC5jL4CzvA=
 
     // echo $_GET["code"];
 
