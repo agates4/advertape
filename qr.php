@@ -35,7 +35,9 @@
         $qr = $result[$ENUM_QR];
         $date_used = $result[$ENUM_DATE_USED];
 
-        echo $qr;
+        if ($qr == "t") {
+            echo "fuck me up";
+        }
         
     }
     // var_dump(openssl_encrypt("Winner winner!&&&&2", parse_url(getenv('ENCRYPT_METHOD'))["path"], parse_url(getenv('ENCRYPT_PASS'))["path"], false, parse_url(getenv('ENCRYPT_IV'))["path"]));
