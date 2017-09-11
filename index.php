@@ -1,9 +1,9 @@
 <?
     require __DIR__ . '/vendor/autoload.php';
 
-    echo "one";
-    $dbopts = parse_url(getenv('DATABASE_URL'));
-    var_dump($dbopts);
+    // echo "one";
+    // $dbopts = parse_url(getenv('DATABASE_URL'));
+    // var_dump($dbopts);
     // echo "two";
     // $app->register(new Herrera\Pdo\PdoServiceProvider(),
     //             array(
