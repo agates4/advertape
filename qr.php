@@ -61,3 +61,52 @@
     // 0SDvNh3sSPPzaeYMkigPaKDZ9RWHj10hNIpIKLIsgohXiTEo7BbBrZpHVFcIjoy1
 
 ?>
+
+<form id="foo">
+    <label for="bar">A bar</label>
+
+    <input type="submit" value="Send" />
+</form>
+
+<script>
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,    
+    function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+// Bind to the submit event of our form
+$("#foo").submit(function(event){
+
+    // Prevent default posting of form - put here to work in case of errors
+    event.preventDefault();
+
+    // Fire off the request to /useQR.php
+    request = $.ajax({
+        url: "/useQR.php",
+        type: "post",
+        data: {code: getUrlVars()["code"]}
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        console.log("Hooray, it worked!");
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+        // Log the error to the console
+        console.error(
+            "The following error occurred: "+
+            textStatus, errorThrown
+        );
+    });
+
+});
+
+</script>
