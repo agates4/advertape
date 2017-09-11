@@ -1,4 +1,5 @@
 <?
-return "pig fuckin";
+
+echo "pig fuckin";
 
 ?>
