@@ -54,6 +54,7 @@ $("#activate").click(function(event){
     // Prevent default posting of form - put here to work in case of errors
     event.preventDefault();
     $("#activate").addClass("loading");
+    $("#activate").addClass("btn-primary");
 
     setTimeout(function(){
         // Fire off the request to /useQR.php
@@ -69,9 +70,10 @@ $("#activate").click(function(event){
             console.log("Hooray, it worked!");
             console.log(response);
             $("#activate").removeClass("loading");
-            $("#activate").addClass("btn-primary");
+            
             // $("#activate").html("Cashier - tap to approve!");
             $("#activate").prop("disabled", true);
+            alert("Congrats! Your coupon has been activated! Show this to your cashier to redeem the coupon.")
         });
 
         // Callback handler that will be called on failure

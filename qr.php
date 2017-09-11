@@ -114,6 +114,7 @@
                 print "            $(\"#activate\").removeClass(\"loading\");\n";
                 print "            // $(\"#activate\").html(\"Cashier - tap to approve!\");\n";
                 print "            $(\"#activate\").prop(\"disabled\", true);\n";
+                print "            alert(\"Congrats! Your coupon has been activated! Show this to your cashier to redeem the coupon.\")";
                 print "        });\n";
                 print "\n";
                 print "        // Callback handler that will be called on failure\n";
