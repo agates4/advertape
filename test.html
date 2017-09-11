@@ -30,7 +30,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="btn-group btn-group-block">
-                        <button id="activate" class="btn btn-primary">Activate</button>
+                        <button id="activate" class="btn">Activate</button>
                     </div>
                 </div>
             </div>        
@@ -68,7 +68,8 @@ $("#activate").click(function(event){
         console.log("Hooray, it worked!");
         console.log(response);
         $("#activate").removeClass("loading");
-        $("#activate").prop("disabled", true);
+        $("#activate").addClass("btn-primary");
+        // $("#activate").prop("disabled", true);
     });
 
     // Callback handler that will be called on failure
