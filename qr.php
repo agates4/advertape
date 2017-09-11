@@ -22,8 +22,11 @@
         echo "<br />\n";
     }
 
-    echo "next";
+    echo "<br>";
 
-    var_dump($_GET);
+    echo openssl_encrypt("Winner winner!&&&&2", parse_url(getenv('ENCRYPT_METHOD')), parse_url(getenv('ENCRYPT_PASS')), false, parse_url(getenv('ENCRYPT_IV')));
+
+
+    // echo $_GET["code"];
 
 ?>
