@@ -1,18 +1,23 @@
 <?
     require __DIR__ . '/vendor/autoload.php';
 
-    // echo "one";
-    // $dbopts = parse_url(getenv('DATABASE_URL'));
-    // var_dump($dbopts);
-    // echo "two";
-    // $app->register(new Herrera\Pdo\PdoServiceProvider(),
-    //             array(
-    //                 'pdo.dsn' => 'pgsql:dbname='.ltrim($dbopts["path"],'/').';host='.$dbopts["host"] . ';port=' . $dbopts["port"],
-    //                 'pdo.username' => $dbopts["user"],
-    //                 'pdo.password' => $dbopts["pass"]
-    //             )
-    // );
-    // echo "three";
+    # This function reads your DATABASE_URL configuration automatically set by Heroku
+    # the return value is a string that will work with pg_connect
+    function pg_connection_string() {
+        $dbopts = parse_url(getenv('DATABASE_URL'));
+        return "dbname=".ltrim($dbopts["path"],'/')." host=".$dbopts["host"]." port=".$dbopts["port"]." user=".$dbopts["user"]." password=".$dbopts["pass"]." sslmode=require";
+    }
+    
+    # Establish db connection
+    $db = pg_connect(pg_connection_string());
+    if (!$db) {
+        echo "Database connection error.";
+        exit;
+    }
+    
+    $result = pg_query($db, "SELECT statement goes here");
+    
+    var_dump($result);
 ?>
 
 <html>
