@@ -25,7 +25,7 @@
     echo "<br>";
 
     // var_dump(parse_url(getenv('ENCRYPT_METHOD')));
-    var_dump(openssl_encrypt("Winner winner!&&&&2", parse_url(getenv('ENCRYPT_METHOD'))["path"], parse_url(getenv('ENCRYPT_PASS'))["path"], false, parse_url(getenv('ENCRYPT_IV'))["path"]));
+    var_dump(openssl_decrypt("naBGppYwZwAka/BgQ3CtX/LydrxtxRS80EC5jL4CzvA=", parse_url(getenv('ENCRYPT_METHOD'))["path"], parse_url(getenv('ENCRYPT_PASS'))["path"], false, parse_url(getenv('ENCRYPT_IV'))["path"]));
 
 
     // echo $_GET["code"];
