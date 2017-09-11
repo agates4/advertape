@@ -17,6 +17,10 @@
     
     $result = pg_query($db, "SELECT * FROM ads");
 
+    while ($row = pg_fetch_row($result)) {
+        var_dump($row);
+        echo "<br />\n";
+    }
     var_dump(pg_fetch_row($result));
 ?>
 
