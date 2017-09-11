@@ -95,6 +95,7 @@
                 print "$(\"#activate\").click(function(event){\n";
                 print "    // Prevent default posting of form - put here to work in case of errors\n";
                 print "    event.preventDefault();\n";
+                print "    $(\"#activate\").addClass(\"loading\");\n";
                 print "\n";
                 print "    // Fire off the request to /useQR.php\n";
                 print "    request = $.ajax({\n";
@@ -108,6 +109,8 @@
                 print "        // Log a message to the console\n";
                 print "        console.log(\"Hooray, it worked!\");\n";
                 print "        console.log(response);\n";
+                print "        $(\"#activate\").removeClass(\"loading\");\n";
+                print "        $(\"#activate\").prop(\"disabled\", true);\n";
                 print "    });\n";
                 print "\n";
                 print "    // Callback handler that will be called on failure\n";
@@ -121,7 +124,7 @@
                 print "\n";
                 print "});\n";
                 print "\n";
-                print "</script>";
+                print "</script>";                
             }
         }
         else {
