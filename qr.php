@@ -110,7 +110,7 @@
                 print "        console.log(\"Hooray, it worked!\");\n";
                 print "        console.log(response);\n";
                 print "        $(\"#activate\").removeClass(\"loading\");\n";
-                print "        $(\"#activate\").prop(\"disabled\", true);\n";
+                print "        $(\"#activate\").addClass(\"btn-primary\");\n";
                 print "    });\n";
                 print "\n";
                 print "    // Callback handler that will be called on failure\n";
