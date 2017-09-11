@@ -72,7 +72,7 @@
                 print "                </div>\n";
                 print "                <div class=\"card-footer\">\n";
                 print "                    <div class=\"btn-group btn-group-block\">\n";
-                print "                        <button id=\"activate\" class=\"btn btn-primary\">Activate</button>\n";
+                print "                        <button id=\"activate\" class=\"btn\">Activate</button>\n";
                 print "                    </div>\n";
                 print "                </div>\n";
                 print "            </div>        \n";
@@ -95,7 +95,7 @@
                 print "$(\"#activate\").click(function(event){\n";
                 print "    // Prevent default posting of form - put here to work in case of errors\n";
                 print "    event.preventDefault();\n";
-                print "    $(\"#activate\").addClass(\"loading\");\n";
+                print "    $(\"#activate\").addClass(\"loading\").delay(1000);\n";
                 print "\n";
                 print "    // Fire off the request to /useQR.php\n";
                 print "    request = $.ajax({\n";
