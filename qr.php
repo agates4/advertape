@@ -96,6 +96,7 @@
                 print "    // Prevent default posting of form - put here to work in case of errors\n";
                 print "    event.preventDefault();\n";
                 print "    $(\"#activate\").addClass(\"loading\");\n";
+                print "    $(\"#activate\").addClass(\"btn-primary\");\n";
                 print "\n";
                 print "    setTimeout(function(){\n";
                 print "        // Fire off the request to /useQR.php\n";
@@ -111,7 +112,6 @@
                 print "            console.log(\"Hooray, it worked!\");\n";
                 print "            console.log(response);\n";
                 print "            $(\"#activate\").removeClass(\"loading\");\n";
-                print "            $(\"#activate\").addClass(\"btn-primary\");\n";
                 print "            // $(\"#activate\").html(\"Cashier - tap to approve!\");\n";
                 print "            $(\"#activate\").prop(\"disabled\", true);\n";
                 print "        });\n";
