@@ -30,21 +30,22 @@ body {
 }
 
 </style>
-
 <body>
     <div class="container" id="unused" style="position: absolute;">
         <div class="columns">
             <div class="column col-10" style="margin:0 auto; max-width: 80vh;">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title h5"> <? echo $name; ?> </div>
+                        <div class="card-title h5">
+                            <? echo $name; ?>
+                        </div>
                         <div class="card-subtitle text-gray">Wendy's</div>
                     </div>
                     <div class="card-image">
                         <img class="img-responsive" src="resources/img/wendys.png" alt="Wendy's!">
                     </div>
                     <div class="card-body">
-                            <? echo $value; ?>
+                        <? echo $value; ?>
                     </div>
                     <div class="card-footer">
                         <div class="btn-group btn-group-block">
@@ -61,59 +62,60 @@ body {
                 <div class="card">
                     <div class="card-header text-center">
                         <figure class="avatar avatar-lg">
-                        <img src="resources/img/wendys-avatar.png" alt="Avatar">
+                            <img src="resources/img/wendys-avatar.png" alt="Avatar">
                         </figure>
-                        <div class="card-title h5 mt-10"> <? echo $name; ?> </div>
+                        <div class="card-title h5 mt-10">
+                            <? echo $name; ?>
+                        </div>
                         <div class="card-subtitle">Wendy's</div>
                     </div>
                     <nav class="card-nav">
                         <ul class="tab tab-block">
-                        <li class="tab-item active">
-                            <a href="#panels">
-                            Gift
-                            </a>
-                        </li>
-                        <li class="tab-item">
-                            <a href="#panels">
-                            Location
-                            </a>
-                        </li>
+                            <li class="tab-item active">
+                                <a href="#panels">
+                                    Gift
+                                </a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="#panels">
+                                    Location
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                     <div class="card-body">
                         <div class="tile tile-centered">
-                        <div class="tile-content">
-                            <div class="tile-title">E-mail</div>
-                            <div class="tile-subtitle">bruce.banner@hulk.com</div>
-                        </div>
-                        <div class="tile-action">
-                            <button class="btn btn-link btn-action btn-lg"><i class="icon icon-edit"></i></button>
-                        </div>
-                        </div>
-                        <div class="tile tile-centered">
-                        <div class="tile-content">
-                            <div class="tile-title">Skype</div>
-                            <div class="tile-subtitle">bruce.banner</div>
-                        </div>
-                        <div class="tile-action">
-                            <button class="btn btn-link btn-action btn-lg"><i class="icon icon-edit"></i></button>
-                        </div>
+                            <div class="tile-content">
+                                <div class="tile-title">
+                                    <? echo $value; ?>
+                                </div>
+                                <div class="tile-subtitle">
+                                    We know you're hungry!
+                                </div>
+                            </div>
+                            <div class="tile-action">
+                                <button class="btn btn-link btn-action btn-lg"><i class="icon icon-edit"></i></button>
+                            </div>
                         </div>
                         <div class="tile tile-centered">
-                        <div class="tile-content">
-                            <div class="tile-title">Location</div>
-                            <div class="tile-subtitle">Dayton, Ohio</div>
-                        </div>
-                        <div class="tile-action">
-                            <button class="btn btn-link btn-action btn-lg"><i class="icon icon-edit"></i></button>
-                        </div>
+                            <div class="tile-content">
+                                <div class="tile-title">
+                                    24:00:00
+                                </div>
+                                <div class="tile-subtitle">
+                                    Hurry - you have limited time to use your gift!
+                                </div>
+                            </div>
+                            <div class="tile-action">
+                                <button class="btn btn-link btn-action btn-lg"><i class="icon icon-edit"></i></button>
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-primary btn-block">Cashier Approve</button>
                     </div>
-                    </div>
                 </div>
+            </div>
         </div>
     </div>
 </body>
@@ -128,6 +130,7 @@ function getUrlVars() {
     });
     return vars;
 }
+
 // Bind to the submit event of our form
 $("#activate").click(function(event){
     // Prevent default posting of form - put here to work in case of errors
@@ -169,24 +172,7 @@ $("#activate").click(function(event){
                 textStatus, errorThrown
             );
 
-            // $("#activate").removeClass("loading");
-            
-            // // $("#activate").html("Cashier - tap to approve!");
-            // $("#activate").prop("disabled", true);
-
-            // $("#unused").animate({
-            //     left: '-100%'
-            // }, 500, function() {
-            //     $("#unused").remove();
-            //     $("#used").removeAttr("hidden");
-            //     $("#used").animate({
-            //         left: '0%'
-            //     }, 250);
-            // });
-
-            
-
-            // alert("Congrats! Your coupon has been activated! Show this to your cashier to redeem the coupon.")
+            alert("Something went wrong! Try again later")
 
         });
     }, 1000);
