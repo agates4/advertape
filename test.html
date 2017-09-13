@@ -63,7 +63,7 @@ body {
                         <figure class="avatar avatar-lg">
                         <img src="resources/img/wendys-avatar.png" alt="Avatar">
                         </figure>
-                        <div class="card-title h5 mt-10">Enjoy your advertape coupon!</div>
+                        <div class="card-title h5 mt-10"> <? echo "POOP"; ?> </div>
                         <div class="card-subtitle">Wendy's</div>
                     </div>
                     <nav class="card-nav">
@@ -146,23 +146,6 @@ $("#activate").click(function(event){
         // Callback handler that will be called on success
         request.done(function (response, textStatus, jqXHR){
             // Log a message to the console
-            console.log("Hooray, it worked!");  
-            console.log(response);
-            $("#activate").removeClass("loading");
-            
-            // $("#activate").html("Cashier - tap to approve!");
-            $("#activate").prop("disabled", true);
-            alert("Congrats! Your coupon has been activated! Show this to your cashier to redeem the coupon.")
-        });
-
-        // Callback handler that will be called on failure
-        request.fail(function (jqXHR, textStatus, errorThrown){
-            // Log the error to the console
-            console.error(
-                "The following error occurred: "+
-                textStatus, errorThrown
-            );
-
             $("#activate").removeClass("loading");
             
             // $("#activate").html("Cashier - tap to approve!");
@@ -177,6 +160,30 @@ $("#activate").click(function(event){
                     left: '0%'
                 }, 250);
             });
+        });
+
+        // Callback handler that will be called on failure
+        request.fail(function (jqXHR, textStatus, errorThrown){
+            // Log the error to the console
+            console.error(
+                "The following error occurred: "+
+                textStatus, errorThrown
+            );
+
+            // $("#activate").removeClass("loading");
+            
+            // // $("#activate").html("Cashier - tap to approve!");
+            // $("#activate").prop("disabled", true);
+
+            // $("#unused").animate({
+            //     left: '-100%'
+            // }, 500, function() {
+            //     $("#unused").remove();
+            //     $("#used").removeAttr("hidden");
+            //     $("#used").animate({
+            //         left: '0%'
+            //     }, 250);
+            // });
 
             
 

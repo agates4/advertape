@@ -75,7 +75,8 @@
                 echo "o shit this one is used";
             }
             else {
-                readfile("test.html");
+                include("test.html");
+                // readfile("test.html");
             }
         }
         else {
