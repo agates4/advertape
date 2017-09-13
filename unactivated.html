@@ -56,6 +56,7 @@ body {
             </div>
         </div>
     </div>
+
     <div class="container" id="used" hidden style="position: absolute; left: 100%;">
         <div class="columns">
             <div class="column col-10" style="margin:0 auto; max-width: 80vh;">
@@ -72,18 +73,19 @@ body {
                     <nav class="card-nav">
                         <ul class="tab tab-block">
                             <li class="tab-item active">
-                                <a href="">
+                                <a href="#" id="gift">
                                     Gift
                                 </a>
                             </li>
                             <li class="tab-item">
-                                <a href="">
+                                <a href="#" id="location">
                                     Location
                                 </a>
                             </li>
                         </ul>
                     </nav>
-                    <div class="card-body text-center">
+
+                    <div class="card-body text-center" id="details">
                         <div class="tile tile-centered">
                             <div class="tile-content">
                                 <div class="tile-title">
@@ -97,6 +99,7 @@ body {
                                 <button class="btn btn-link btn-action btn-lg"><i class="icon icon-edit"></i></button>
                             </div>
                         </div>
+                        <br>
                         <div class="tile tile-centered">
                             <div class="tile-content">
                                 <div class="tile-title">
@@ -114,6 +117,40 @@ body {
                     <div class="card-footer">
                         <button class="btn btn-primary btn-block">Cashier Approve</button>
                     </div>
+
+                    <div class="card-body text-center" hidden id="locations">
+                        <div class="tile tile-centered">
+                            <div class="tile-content">
+                                <div class="tile-title">
+                                    <? echo $value; ?>
+                                </div>
+                                <div class="tile-subtitle">
+                                    big big dongs!
+                                </div>
+                            </div>
+                            <div class="tile-action">
+                                <button class="btn btn-link btn-action btn-lg"><i class="icon icon-edit"></i></button>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="tile tile-centered">
+                            <div class="tile-content">
+                                <div class="tile-title">
+                                    jimmmminy crickets!!!!
+                                </div>
+                                <div class="tile-subtitle">
+                                    Hurry - you have limited time to use your gift!
+                                </div>
+                            </div>
+                            <div class="tile-action">
+                                <button class="btn btn-link btn-action btn-lg"><i class="icon icon-edit"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary btn-block">Cashier Approve</button>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -176,7 +213,16 @@ $("#activate").click(function(event){
 
         });
     }, 1000);
+});
 
+$("#gift").click(function(event){
+    $("#details").attr("hidden");
+    $("#locations").removeAttr("hidden");
+});
+
+$("#location").click(function(event){
+    $("#locations").attr("hidden");
+    $("#details").removeAttr("hidden");
 });
 
 </script>
