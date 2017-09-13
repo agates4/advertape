@@ -29,6 +29,11 @@ body {
     left: 50%;
 }
 
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+
 </style>
 <body>
     <div class="container" id="unused" style="position: absolute;">
@@ -42,10 +47,12 @@ body {
                         <div class="card-subtitle text-gray">Wendy's</div>
                     </div>
                     <div class="card-image">
-                        <img class="img-responsive" src="resources/img/wendys.png" alt="Wendy's!">
+                        <img class="img-responsive center" src="resources/img/wendys.png" style="max-width: 300;" alt="Wendy's!">
                     </div>
                     <div class="card-body">
-                        <? echo $value; ?>
+                        <div class="toast">
+                            <? echo $value; ?>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <div class="btn-group btn-group-block">
