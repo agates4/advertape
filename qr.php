@@ -14,6 +14,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
+<style>
+    body {
+        background-color: #EBEDEF;
+    }
+
+    .paged {
+        position: absolute;
+        left: 150%;
+    }
+
+    #unactivated {
+        left: 50%;
+    }
+</style>
+
 <?
     require __DIR__ . '/vendor/autoload.php';
 
@@ -45,6 +60,10 @@
         
         $result = pg_fetch_row(pg_query($db, "SELECT * FROM ads WHERE id = " . $id . ";"));
 
+        if ($result == NULL) {
+            echo "o shit doesnt exist";
+        }
+
         $name = $result[$ENUM_NAME];
         $value = $result[$ENUM_VALUE];
         $used = $result[$ENUM_USED];
@@ -56,81 +75,7 @@
                 echo "o shit this one is used";
             }
             else {
-                print "<div class=\"container\">\n";
-                print "    <div class=\"columns\">\n";
-                print "        <div class=\"column col-xl-10\" style=\"margin:0 auto; max-width: 500px;\">\n";
-                print "            <div class=\"card\">\n";
-                print "                <div class=\"card-header\">\n";
-                print "                    <div class=\"card-title h5\">$name</div>\n";
-                print "                    <div class=\"card-subtitle text-gray\">Wendy's</div>\n";
-                print "                </div>\n";
-                print "                <div class=\"card-image\">\n";
-                print "                    <img class=\"img-responsive\" src=\"resources/img/wendys.png\" alt=\"Wendy's!\">\n";
-                print "                </div>\n";
-                print "                <div class=\"card-body\">\n";
-                print "                    $value\n";
-                print "                </div>\n";
-                print "                <div class=\"card-footer\">\n";
-                print "                    <div class=\"btn-group btn-group-block\">\n";
-                print "                        <button id=\"activate\" class=\"btn\">Activate</button>\n";
-                print "                    </div>\n";
-                print "                </div>\n";
-                print "            </div>        \n";
-                print "        </div>\n";
-                print "    </div>\n";
-                print "</div>\n";
-                print "\n";
-                print "<script>\n";
-                print "\n";
-                print "function getUrlVars() {\n";
-                print "    var vars = {};\n";
-                print "    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,    \n";
-                print "    function(m,key,value) {\n";
-                print "        vars[key] = value;\n";
-                print "    });\n";
-                print "    return vars;\n";
-                print "}\n";
-                print "\n";
-                print "// Bind to the submit event of our form\n";
-                print "$(\"#activate\").click(function(event){\n";
-                print "    // Prevent default posting of form - put here to work in case of errors\n";
-                print "    event.preventDefault();\n";
-                print "    $(\"#activate\").addClass(\"loading\");\n";
-                print "    $(\"#activate\").addClass(\"btn-primary\");\n";
-                print "\n";
-                print "    setTimeout(function(){\n";
-                print "        // Fire off the request to /useQR.php\n";
-                print "        request = $.ajax({\n";
-                print "            url: \"/useQR.php\",\n";
-                print "            type: \"post\",\n";
-                print "            data: {code: getUrlVars()[\"code\"]}\n";
-                print "        });\n";
-                print "\n";
-                print "        // Callback handler that will be called on success\n";
-                print "        request.done(function (response, textStatus, jqXHR){\n";
-                print "            // Log a message to the console\n";
-                print "            console.log(\"Hooray, it worked!\");\n";
-                print "            console.log(response);\n";
-                print "            $(\"#activate\").removeClass(\"loading\");\n";
-                print "            // $(\"#activate\").html(\"Cashier - tap to approve!\");\n";
-                print "            $(\"#activate\").prop(\"disabled\", true);\n";
-                print "            alert(\"Congrats! Your coupon has been activated! Show this to your cashier to redeem the coupon.\")";
-                print "        });\n";
-                print "\n";
-                print "        // Callback handler that will be called on failure\n";
-                print "        request.fail(function (jqXHR, textStatus, errorThrown){\n";
-                print "            // Log the error to the console\n";
-                print "            console.error(\n";
-                print "                \"The following error occurred: \"+\n";
-                print "                textStatus, errorThrown\n";
-                print "            );\n";
-                print "        });\n";
-                print "    }, 1000);\n";
-                print "\n";
-                print "});\n";
-                print "\n";
-                print "</script>";
-                            
+                readfile("test.html");
             }
         }
         else {

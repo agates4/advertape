@@ -15,6 +15,10 @@
 </head>
 
 <style>
+    
+body {
+    background-color: #EBEDEF;
+}
 
 .paged {
     position: absolute;
@@ -27,33 +31,92 @@
 
 </style>
 
-<!-- <div id="wrap">
-    <div id="popup"> -->
-        <div class="container">
-            <div class="columns">
-                <div class="column col-10" style="margin:0 auto; max-width: 80vh;">
-                    <div class="card" id="unactivated">
-                        <div class="card-header">
-                            <div class="card-title h5">Enjoy your advertape coupon!</div>
-                            <div class="card-subtitle text-gray">Wendy's</div>
-                        </div>
-                        <div class="card-image">
-                            <img class="img-responsive" src="resources/img/wendys.png" alt="Wendy's!">
-                        </div>
-                        <div class="card-body">
-                                Use this for 50% off any everyday value menu purchase!
-                        </div>
-                        <div class="card-footer">
-                            <div class="btn-group btn-group-block">
-                                <button id="activate" class="btn">Activate</button>
-                            </div>
+<body>
+    <div class="container" id="unused" style="position: absolute;">
+        <div class="columns">
+            <div class="column col-10" style="margin:0 auto; max-width: 80vh;">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title h5">Enjoy your advertape coupon!</div>
+                        <div class="card-subtitle text-gray">Wendy's</div>
+                    </div>
+                    <div class="card-image">
+                        <img class="img-responsive" src="resources/img/wendys.png" alt="Wendy's!">
+                    </div>
+                    <div class="card-body">
+                            Use this for 50% off any everyday value menu purchase!
+                    </div>
+                    <div class="card-footer">
+                        <div class="btn-group btn-group-block">
+                            <button id="activate" class="btn">Activate</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    <!-- </div>
-</div> -->
+    </div>
+    <div class="container" id="used" hidden style="position: absolute; left: 100%;">
+        <div class="columns">
+            <div class="column col-10" style="margin:0 auto; max-width: 80vh;">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <figure class="avatar avatar-lg">
+                        <img src="resources/img/wendys-avatar.png" alt="Avatar">
+                        </figure>
+                        <div class="card-title h5 mt-10">Enjoy your advertape coupon!</div>
+                        <div class="card-subtitle">Wendy's</div>
+                    </div>
+                    <nav class="card-nav">
+                        <ul class="tab tab-block">
+                        <li class="tab-item active">
+                            <a href="#panels">
+                            Gift
+                            </a>
+                        </li>
+                        <li class="tab-item">
+                            <a href="#panels">
+                            Location
+                            </a>
+                        </li>
+                        </ul>
+                    </nav>
+                    <div class="card-body">
+                        <div class="tile tile-centered">
+                        <div class="tile-content">
+                            <div class="tile-title">E-mail</div>
+                            <div class="tile-subtitle">bruce.banner@hulk.com</div>
+                        </div>
+                        <div class="tile-action">
+                            <button class="btn btn-link btn-action btn-lg"><i class="icon icon-edit"></i></button>
+                        </div>
+                        </div>
+                        <div class="tile tile-centered">
+                        <div class="tile-content">
+                            <div class="tile-title">Skype</div>
+                            <div class="tile-subtitle">bruce.banner</div>
+                        </div>
+                        <div class="tile-action">
+                            <button class="btn btn-link btn-action btn-lg"><i class="icon icon-edit"></i></button>
+                        </div>
+                        </div>
+                        <div class="tile tile-centered">
+                        <div class="tile-content">
+                            <div class="tile-title">Location</div>
+                            <div class="tile-subtitle">Dayton, Ohio</div>
+                        </div>
+                        <div class="tile-action">
+                            <button class="btn btn-link btn-action btn-lg"><i class="icon icon-edit"></i></button>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary btn-block">Cashier Approve</button>
+                    </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</body>
 
 <script>
 
@@ -104,56 +167,24 @@ $("#activate").click(function(event){
             
             // $("#activate").html("Cashier - tap to approve!");
             $("#activate").prop("disabled", true);
-            breakGlass();
+
+            $("#unused").animate({
+                left: '-100%'
+            }, 500, function() {
+                $("#unused").remove();
+                $("#used").removeAttr("hidden");
+                $("#used").animate({
+                    left: '0%'
+                }, 250);
+            });
+
+            
+
             // alert("Congrats! Your coupon has been activated! Show this to your cashier to redeem the coupon.")
 
         });
     }, 1000);
 
 });
-
-var pieces = 70,
-    speed = 1,
-    pieceW = 30,
-    pieceH = 30;
-
-
-for (var i = pieces - 1; i >= 0; i--) {
-  $('#popup').prepend('<div class="piece" style="width:'+pieceW+'px; height:'+pieceH+'px"></div>');
-};
-
-function breakGlass(from){
-  if (from === "reverse"){
-    $('.piece').each(function(){
-      TweenLite.to($(this), speed, {x:0, y:0, rotationX:0, rotationY:0, opacity: 1, z: 0});
-      TweenLite.to($('#popup h1'),0.2,{opacity:1, delay: speed});
-    });
-    return;
-  }
-
-  if(!from){
-    TweenLite.to($('#popup h1'),0.2,{opacity:0});
-  } else {
-    TweenLite.from($('#popup h1'),0.5,{opacity:0, delay: speed});
-  }
-
-  $('.piece').each(function(){
-    var distX = getRandomArbitrary(-250, 250),	
-        distY = getRandomArbitrary(-250, 250),
-        rotY  = getRandomArbitrary(-720, 720),
-        rotX  = getRandomArbitrary(-720, 720),
-        z = getRandomArbitrary(-500, 500);
-
-    if(!from){
-      TweenLite.to($(this), speed, {x:distX, y:distY, rotationX:rotX, rotationY:rotY, opacity: 0, z: z});	
-    } else {
-      TweenLite.from($(this), speed, {x:distX, y:distY, rotationX:rotX, rotationY:rotY, opacity: 0, z: z});	
-    }				
-  });	
-}
-
-function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
-}
 
 </script>
