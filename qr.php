@@ -57,8 +57,10 @@
             echo "Database connection error.";
             exit;
         }
-        
-        $result = pg_fetch_row(pg_query($db, "SELECT * FROM ads WHERE id = " . $id . ";"));
+        $sqlGetAd = "SELECT * FROM ads WHERE id = $1";
+        $result = pg_prepare($db, "get_ad", $sqlGetAd);
+        $result = pg_execute($db, "get_ad", array($id));
+        $result = pg_fetch_row($result);
 
         if ($result == NULL) {
             echo "o shit doesnt exist";
