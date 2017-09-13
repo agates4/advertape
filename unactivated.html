@@ -73,12 +73,12 @@ body {
                     <nav class="card-nav">
                         <ul class="tab tab-block">
                             <li class="tab-item active">
-                                <a href="#" id="gift">
+                                <a href="javascript:void(0);" id="gift">
                                     Gift
                                 </a>
                             </li>
                             <li class="tab-item">
-                                <a href="#" id="location">
+                                <a href="javascript:void(0);" id="location">
                                     Location
                                 </a>
                             </li>
@@ -213,13 +213,13 @@ $("#activate").click(function(event){
 });
 
 $("#gift").click(function(event){
-    $("#details").attr("hidden");
-    $("#locations").removeAttr("hidden");
+    $("#details").hide();
+    $("#locations").show();
 });
 
 $("#location").click(function(event){
-    $("#locations").attr("hidden");
-    $("#details").removeAttr("hidden");
+    $("#locations").hide();
+    $("#details").show();
 });
 
 </script>
