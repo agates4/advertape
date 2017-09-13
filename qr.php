@@ -75,8 +75,7 @@
                 echo "o shit this one is used";
             }
             else {
-                include("test.html");
-                // readfile("test.html");
+                include("unactivated.html");
             }
         }
         else {
