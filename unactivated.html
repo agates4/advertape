@@ -12,21 +12,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    
-    <!-- <script type="text/javascript">
-    $(function(){
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-      var ww = ( $(window).width() < window.screen.width ) ? $(window).width() : window.screen.width; //get proper width
-      var mw = 480; // min width of site
-      var ratio =  ww / mw; //calculate ratio
-      if( ww < mw){ //smaller than minimum size
-       $('#Viewport').attr('content', 'initial-scale=' + ratio + ', maximum-scale=' + ratio + ', minimum-scale=' + ratio + ', user-scalable=yes, width=' + ww);
-      }else{ //regular size
-       $('#Viewport').attr('content', 'initial-scale=1.0, maximum-scale=2, minimum-scale=1.0, user-scalable=yes, width=' + ww);
-      }
-    }
-    });
-    </script> -->
 </head>
 
 <style>
@@ -60,21 +45,12 @@ img.center {
                     </div>
                     <div class="card-body">
                         <div class="columns">
-                            <!-- <div class="column col-2"></div> -->
                             <div class="column col-12 text-center">
                                 <strong style="font-size: 200%;"><? echo $name; ?></strong> 
                                 <br>
                                 <span style="font-size: 125%;"><? echo $value; ?></span>
                             </div>
-                            <!-- <div class="column col-2"></div> -->
                         </div>
-                        <!-- <div class="columns">
-                            <div class="column col-4 col-mx-auto">
-                                <div class="toast toast-success">
-                                    <? echo $value; ?>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                     <div class="card-footer">
                         <div class="btn-group btn-group-block">
@@ -88,7 +64,7 @@ img.center {
 
     <div class="container" id="used" hidden style="position: absolute; left: 100%;">
         <div class="columns">
-            <div class="column col-10" style="margin:0 auto; max-width: 80vh;">
+            <div class="column col-11" style="margin:0 auto; max-width: 70vh;">
                 <div class="card">
                     <div class="card-header text-center">
                         <figure class="avatar avatar-lg">
