@@ -11,7 +11,22 @@
     <script src="resources/js/auto-complete.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, height=device-height,,initial-scale=1.0">
+    <meta id="Viewport" name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    
+    <script type="text/javascript">
+    $(function(){
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+      var ww = ( $(window).width() < window.screen.width ) ? $(window).width() : window.screen.width; //get proper width
+      var mw = 480; // min width of site
+      var ratio =  ww / mw; //calculate ratio
+      if( ww < mw){ //smaller than minimum size
+       $('#Viewport').attr('content', 'initial-scale=' + ratio + ', maximum-scale=' + ratio + ', minimum-scale=' + ratio + ', user-scalable=yes, width=' + ww);
+      }else{ //regular size
+       $('#Viewport').attr('content', 'initial-scale=1.0, maximum-scale=2, minimum-scale=1.0, user-scalable=yes, width=' + ww);
+      }
+    }
+    });
+    </script>
 </head>
 
 <style>
@@ -63,7 +78,7 @@ img.center {
                     </div>
                     <div class="card-footer">
                         <div class="btn-group btn-group-block">
-                            <button id="activate" class="btn">Activate</button>
+                            <button id="activate" class="btn">Activate Reward</button>
                         </div>
                     </div>
                 </div>
