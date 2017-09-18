@@ -40,12 +40,6 @@ img.center {
         <div class="columns">
             <div class="column col-10" style="margin:0 auto; max-width: 80vh;">
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-title h5">
-                            <? echo $name; ?>
-                        </div>
-                        <div class="card-subtitle text-gray">Wendy's</div>
-                    </div>
                     <div class="card-image">
                         <img class="img-responsive center" src="resources/img/wendys.png" style="max-width: 300;" alt="Wendy's!">
                     </div>
@@ -53,10 +47,7 @@ img.center {
                         <div class="columns">
                             <div class="column col-3"></div>
                             <div class="column col-6 text-center">
-                                <blockquote>
-                                    <p><? echo $value; ?></p>
-                                    <cite>Wendy's</cite>
-                                </blockquote>
+                                <strong><? echo $name; ?></strong> <? echo $value; ?>
                             </div>
                             <div class="column col-3"></div>
                         </div>
