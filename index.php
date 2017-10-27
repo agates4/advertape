@@ -1,7 +1,7 @@
-<meta name="google-site-verification" content="uf9Y9h5fVprVc_z6d9abQDEZj2i3aUx77n45BpaPhOM" />
 <html>
 
 <head>
+    <meta name="google-site-verification" content="uf9Y9h5fVprVc_z6d9abQDEZj2i3aUx77n45BpaPhOM" />
     <link rel="stylesheet" href="resources/css/spectre/spectre.css"/>
     <link rel="stylesheet" href="resources/css/spectre/spectre-exp.css"/>
     <link rel="stylesheet" href="resources/css/font-awesome-4.7.0/css/font-awesome.min.css">
